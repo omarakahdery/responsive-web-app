@@ -1,0 +1,91 @@
+.header {
+  height: 4rem;
+  background-color: white;
+  box-shadow: 0 0 10px #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--m2);
+  cursor: pointer;
+}
+.button {
+  width: 5rem;
+  height: 2.2rem;
+  border-radius: 5px;
+  color: var(--m2);
+  background-color: #fff;
+  border: 2px solid var(--m2);
+  cursor: pointer;
+}
+.button:hover {
+  background-color: rgb(245, 245, 245);
+}
+.listwrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.list {
+  color: var(--m2);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.list:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 800px) {
+  .listwrap {
+    display: none;
+  }
+}
+/* ///// */
+.searchWraper {
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+.searchWraper hr {
+  width: 100%;
+  position: absolute;
+  top: 3.5rem;
+}
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 5px;
+  color: black;
+  background-color: #fff;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+.input {
+  height: 3rem;
+  width: 24rem;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  outline-style: none;
+  box-shadow: none;
+  position: absolute;
+  top: 40%;
+  right: 50%;
+  transform: translate(50%, 50%);
+}
+@media (max-width: 767px) {
+  .input {
+    width: 16rem;
+  }
+}

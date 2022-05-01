@@ -1,0 +1,84 @@
+.nav {
+  height: 4rem;
+  background-color: white;
+  box-shadow: 0 0 10px #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.button {
+  width: 5rem;
+  height: 2.2rem;
+  border-radius: 5px;
+  color: var(--m2);
+  background-color: #fff;
+  border: 2px solid var(--m2);
+  cursor: pointer;
+}
+.button:hover {
+  background-color: rgb(245, 245, 245);
+}
+.ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.a {
+  height: 4rem;
+  position: relative;
+  color: black;
+  padding: 0 30px;
+  overflow: hidden;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.a:hover {
+  color: var(--m2);
+  background-color: #fafafa;
+}
+.a::before {
+  content: "";
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  background-color: var(--m2);
+  transition: 0.4s;
+}
+.a:hover::before {
+  left: 0;
+}
+.megaMenu {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  left: 0;
+  top: 0;
+  padding: 30px;
+  background-color: #fff;
+  border-bottom: 4px solid #3095b4;
+  z-index: 100;
+  gap: 40px;
+  top: 100%;
+  opacity: 0;
+  transition: top 0.3s, opacity 0.3s;
+}
+
+.il:hover .megaMenu {
+  opacity: 1;
+  z-index: 100;
+  top: 100%;
+}
+.links {
+  display: flex;
+  flex-direction: column;
+}
