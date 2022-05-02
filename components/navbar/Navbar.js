@@ -1,16 +1,14 @@
-import React from "react";
-import { useState } from "react";
 import classes from "../navbar/Navbar.module.css";
 import useWindowSize from "../../customHooks/useWindowSize";
+import { useState } from "react";
 
-const Navbar = (props) => {
+const NavOne = (props) => {
   const { width } = useWindowSize();
   const [open, setOpen] = useState(false);
-  console.log(open);
   const handelClick = () => {
     setOpen(!open);
   };
-  if (width <= 800)
+  if (!open && width <= 800) {
     return (
       <nav className={classes.nav}>
         <button className={classes.button} onClick={handelClick}>
@@ -18,55 +16,69 @@ const Navbar = (props) => {
         </button>
       </nav>
     );
-
+  }
   return (
-    <nav className={classes.nav}>
-      <ul className={classes.ul}>
-        <NavItem> Public Sector </NavItem>
-        <NavItem> Sales & Marketing </NavItem>
-        <NavItem> Finance </NavItem>
-        <NavItem> Small Business </NavItem>
-        <NavItem> Our Company </NavItem>
-      </ul>
+    <Navbar closeBtn={<CloseBtn handelClick={handelClick} />}>
+      <NavItem> Public Sector </NavItem>
+      <NavItem> Sales & Marketing </NavItem>
+      <NavItem> Finance </NavItem>
+      <NavItem> Small Business </NavItem>
+      <NavItem> Our Company </NavItem>
+    </Navbar>
+  );
+};
+
+const Navbar = (props) => {
+  const { width } = useWindowSize();
+
+  const styles = width <= 800 ? classes.navModil : classes.nav;
+  return (
+    <nav className={styles}>
+      {props.closeBtn}
+      <ul className={classes.ul}>{props.children}</ul>
     </nav>
   );
 };
-
-export default Navbar;
-const NavItem = (props) => {
+const CloseBtn = (props) => {
   const { width } = useWindowSize();
-  const [open, setOpen] = useState(false);
 
   if (width <= 800)
     return (
-      <button className={classes.button} onClick={handelClick}>
-        Menu
-      </button>
+      <>
+        <div className={classes.title}>Nav Menu</div>
+        <button onClick={props.handelClick} className={classes.closeBtn}>
+          X
+        </button>
+        <hr />
+      </>
+    );
+};
+const NavItem = (props) => {
+  const { width } = useWindowSize();
+  if (width <= 800)
+    return (
+      <li className={classes.il}>
+        <a className={classes.a}>{props.children}</a>
+      </li>
     );
   return (
-    <il className={classes.il}>
-      <a className={classes.a} onClick={() => setOpen(!open)}>
-        {props.children}
-      </a>
-      {(width >= 800 || open) && (
+    <li className={classes.il}>
+      <a className={classes.a}>{props.children}</a>
+      {width >= 800 && (
         <div className={classes.megaMenu}>
           <ul className={classes.links}>
             <MegaMenuItem> 2d2d2d2d Sector </MegaMenuItem>
-            <MegaMenuItem> 2d2d2d2d & Marketing </MegaMenuItem>
-            <MegaMenuItem> 2d2d2d2d </MegaMenuItem>
-            <MegaMenuItem> 2d2d2d2d Business </MegaMenuItem>
-            <MegaMenuItem> 2d2d2d2d Company </MegaMenuItem>
           </ul>
         </div>
       )}
-    </il>
+    </li>
   );
 };
-
 const MegaMenuItem = (props) => {
   return (
-    <il>
+    <li>
       <a>{props.children}</a>
-    </il>
+    </li>
   );
 };
+export default NavOne;
