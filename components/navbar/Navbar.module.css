@@ -17,6 +17,7 @@
   background-color: #fff;
   border: 2px solid var(--m2);
   cursor: pointer;
+  z-index: 2222;
 }
 .button:hover {
   background-color: rgb(245, 245, 245);
@@ -82,6 +83,22 @@
 .links {
   display: flex;
   flex-direction: column;
+}
+.backDiv {
+  height: 2rem;
+  width: 100vw;
+  background: #222;
+}
+.backButton {
+  height: 100%;
+  width: 100%;
+  color: var(--m2);
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: #222;
+  border: none;
+  cursor: pointer;
+  z-index: 2222;
 }
 @media (max-width: 800px) {
   .navModil {
