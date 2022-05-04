@@ -18,19 +18,26 @@ const NavOne = (props) => {
   const shoClickHandler = () => {
     setShow({ isShow: false, whichIsShow: "" });
   };
+  const onMouseOverHandler = (e) => {
+    if (width > 800) {
+      const whichIsShow = e.target.innerText;
+      // console.log(e.target.innerText);
+      const isShow = !isShow;
+      setShow({ whichIsShow, isShow });
+      return;
+    }
+    return;
+  };
   const handelItemClick = (e) => {
-    const whichIsShow = e.target.innerHTML;
+    const whichIsShow = e.target.innerText;
+
     const isShow = !isShow;
     setShow({ whichIsShow, isShow });
   };
   if (!open && width <= 800) {
     return (
       <nav className={classes.nav}>
-        <button
-          BtnIsRun={open}
-          className={classes.button}
-          onClick={handelClick}
-        >
+        <button className={classes.button} onClick={handelClick}>
           Menu
         </button>
       </nav>
@@ -46,45 +53,44 @@ const NavOne = (props) => {
           </button>
         </div>
       )}
-      {show.whichIsShow === "" ? (
+
+      {show.whichIsShow === "" || (width > 800 && show.isShow) ? (
         <>
           <NavItem
-            show={show.whichIsShow === "Public Sector" ? show.isShow : false}
-            // show={show.isShow}
+            onMouseOver={onMouseOverHandler}
+            show={show.isShow}
             whichIsShow={show.whichIsShow}
             onClick={handelItemClick}
           >
             Public Sector
           </NavItem>
           <NavItem
-            show={
-              show.whichIsShow === "Sales and Marketing" ? show.isShow : false
-            }
-            // show={show.isShow}
+            onMouseOver={onMouseOverHandler}
+            show={show.isShow}
             whichIsShow={show.whichIsShow}
             onClick={handelItemClick}
           >
             Sales and Marketing
           </NavItem>
           <NavItem
-            show={show.whichIsShow === "Finance" ? show.isShow : false}
-            // show={show.isShow}
+            onMouseOver={onMouseOverHandler}
+            show={show.isShow}
             whichIsShow={show.whichIsShow}
             onClick={handelItemClick}
           >
             Finance
           </NavItem>
           <NavItem
-            show={show.whichIsShow === "Small Business" ? show.isShow : false}
-            // show={show.isShow}
+            onMouseOver={onMouseOverHandler}
+            show={show.isShow}
             whichIsShow={show.whichIsShow}
             onClick={handelItemClick}
           >
             Small Business
           </NavItem>
           <NavItem
-            show={show.whichIsShow === "Our Company" ? show.isShow : false}
-            // show={show.isShow}
+            onMouseOver={onMouseOverHandler}
+            show={show.isShow}
             whichIsShow={show.whichIsShow}
             onClick={handelItemClick}
           >
@@ -93,13 +99,10 @@ const NavOne = (props) => {
         </>
       ) : (
         <NavItem
-          // show={show.whichIsShow === "Our Company" ? show.isShow : false}
           show={show.isShow}
           whichIsShow={show.whichIsShow}
           onClick={handelItemClick}
-        >
-          Our Company
-        </NavItem>
+        />
       )}
     </Navbar>
   );
@@ -163,6 +166,7 @@ const NavItem = (props) => {
       "Stats",
     ],
   };
+  // console.log(props.whichIsShow);
   const { width } = useWindowSize();
   if (width <= 800)
     return (
@@ -183,13 +187,16 @@ const NavItem = (props) => {
 
   return (
     <li className={classes.il}>
-      <a className={classes.a}>{props.children}</a>
-      {width >= 800 && (
+      <a onMouseOver={props.onMouseOver} className={classes.a}>
+        {props.children}
+      </a>
+      {width > 800 && (
         <div className={classes.megaMenu}>
           <ul className={classes.links}>
-            {/* {nextMenu[props.whichIsShow].map((item, index) => (
-              <MegaMenuItem key={index}> {item}</MegaMenuItem>
-            ))} */}
+            {props.whichIsShow &&
+              nextMenu[props.whichIsShow].map((item, index) => (
+                <MegaMenuItem key={index}> {item}</MegaMenuItem>
+              ))}
           </ul>
         </div>
       )}
@@ -200,7 +207,7 @@ const NavItem = (props) => {
 const MegaMenuItem = (props) => {
   return (
     <li>
-      <a>{props.children}</a>
+      <a className={classes.aa}>{props.children}</a>
     </li>
   );
 };

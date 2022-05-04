@@ -42,6 +42,16 @@
   cursor: pointer;
   transition: 0.3s;
 }
+.aa {
+  height: 4rem;
+  position: relative;
+  color: black;
+  padding: 0 30px;
+  overflow: hidden;
+  font-size: 18px;
+  cursor: pointer;
+  border-bottom: 1px solid #3095b4;
+}
 .a:hover {
   color: var(--m2);
   background-color: #fafafa;
@@ -51,7 +61,7 @@
   height: 4px;
   width: 100%;
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: -100%;
   background-color: var(--m2);
   transition: 0.4s;
@@ -61,7 +71,7 @@
 }
 .megaMenu {
   position: absolute;
-  display: flex;
+  display: none;
   width: 100%;
   left: 0;
   top: 0;
@@ -77,6 +87,7 @@
 
 .il:hover .megaMenu {
   opacity: 1;
+  display: flex;
   z-index: 100;
   top: 100%;
 }
@@ -88,17 +99,21 @@
   height: 2rem;
   width: 100vw;
   background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .backButton {
   height: 100%;
-  width: 100%;
-  color: var(--m2);
+  width: 50%;
+  color: #ffffff;
   font-size: 1.5rem;
-  font-weight: 600;
+  /* font-weight: 600; */
   background-color: #222;
   border: none;
   cursor: pointer;
   z-index: 2222;
+  border-bottom: 2px #ffff solid;
 }
 @media (max-width: 800px) {
   .navModil {
