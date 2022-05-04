@@ -2,6 +2,40 @@ import classes from "../navbar/Navbar.module.css";
 import useWindowSize from "../../customHooks/useWindowSize";
 import { useState } from "react";
 
+//////
+const nextMenu = {
+  "Public Sector": [
+    "Verify Government Suppliers",
+    "Manage Procuremeny Risk",
+    "Share Investigative",
+    "Federal",
+    "Analytics Data",
+  ],
+  "Sales and Marketing": [
+    "Clean and Consolidate Data",
+    "Reach and Engage Buyers",
+    "Reach and Engage Educators",
+    "Protect Supply Chains",
+    "Investor Relations",
+  ],
+  Finance: ["Reserch", "Advocacy", "Innovation", "Membership", "Analysis"],
+  "Small Business": [
+    "Stats",
+    "Live Business Identity",
+    "Marketplace",
+    "Partner",
+    "D&B Analytics Studio",
+  ],
+  "Our Company": [
+    "About US",
+    "Partner",
+    "Services",
+    "Events",
+    "Pricing Plans",
+    "Stats",
+  ],
+};
+/////////////
 const NavOne = (props) => {
   const { width } = useWindowSize();
   const [open, setOpen] = useState(false);
@@ -61,6 +95,7 @@ const NavOne = (props) => {
             show={show.isShow}
             whichIsShow={show.whichIsShow}
             onClick={handelItemClick}
+            MegaMenu={<MegaMenu whichIsShow={show.whichIsShow} />}
           >
             Public Sector
           </NavItem>
@@ -69,6 +104,7 @@ const NavOne = (props) => {
             show={show.isShow}
             whichIsShow={show.whichIsShow}
             onClick={handelItemClick}
+            MegaMenu={<MegaMenu whichIsShow={show.whichIsShow} />}
           >
             Sales and Marketing
           </NavItem>
@@ -77,6 +113,7 @@ const NavOne = (props) => {
             show={show.isShow}
             whichIsShow={show.whichIsShow}
             onClick={handelItemClick}
+            MegaMenu={<MegaMenu whichIsShow={show.whichIsShow} />}
           >
             Finance
           </NavItem>
@@ -85,6 +122,7 @@ const NavOne = (props) => {
             show={show.isShow}
             whichIsShow={show.whichIsShow}
             onClick={handelItemClick}
+            MegaMenu={<MegaMenu whichIsShow={show.whichIsShow} />}
           >
             Small Business
           </NavItem>
@@ -93,6 +131,7 @@ const NavOne = (props) => {
             show={show.isShow}
             whichIsShow={show.whichIsShow}
             onClick={handelItemClick}
+            MegaMenu={<MegaMenu whichIsShow={show.whichIsShow} />}
           >
             Our Company
           </NavItem>
@@ -121,7 +160,6 @@ const Navbar = (props) => {
 };
 const CloseBtn = (props) => {
   const { width } = useWindowSize();
-
   if (width <= 800)
     return (
       <>
@@ -134,39 +172,6 @@ const CloseBtn = (props) => {
     );
 };
 const NavItem = (props) => {
-  const nextMenu = {
-    "Public Sector": [
-      "Verify Government Suppliers",
-      "Manage Procuremeny Risk",
-      "Share Investigative",
-      "Federal",
-      "Analytics Data",
-    ],
-    "Sales and Marketing": [
-      "Clean and Consolidate Data",
-      "Reach and Engage Buyers",
-      "Reach and Engage Educators",
-      "Protect Supply Chains",
-      "Investor Relations",
-    ],
-    Finance: ["Reserch", "Advocacy", "Innovation", "Membership", "Analysis"],
-    "Small Business": [
-      "Stats",
-      "Live Business Identity",
-      "Marketplace",
-      "Partner",
-      "D&B Analytics Studio",
-    ],
-    "Our Company": [
-      "About US",
-      "Partner",
-      "Services",
-      "Events",
-      "Pricing Plans",
-      "Stats",
-    ],
-  };
-  // console.log(props.whichIsShow);
   const { width } = useWindowSize();
   if (width <= 800)
     return (
@@ -190,6 +195,14 @@ const NavItem = (props) => {
       <a onMouseOver={props.onMouseOver} className={classes.a}>
         {props.children}
       </a>
+      {props.MegaMenu}
+    </li>
+  );
+};
+const MegaMenu = (props) => {
+  const { width } = useWindowSize();
+  return (
+    <>
       {width > 800 && (
         <div className={classes.megaMenu}>
           <ul className={classes.links}>
@@ -200,7 +213,7 @@ const NavItem = (props) => {
           </ul>
         </div>
       )}
-    </li>
+    </>
   );
 };
 
