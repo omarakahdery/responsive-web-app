@@ -24,7 +24,7 @@ const nextMenu = {
     "Live Business Identity",
     "Marketplace",
     "Partner",
-    "D&B Analytics Studio",
+    "DB Analytics Studio",
   ],
   "Our Company": [
     "About US",
