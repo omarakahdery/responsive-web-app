@@ -83,7 +83,7 @@ const NavOne = (props) => {
       {show.isShow && width <= 800 && (
         <div className={classes.backDiv}>
           <button className={classes.backButton} onClick={shoClickHandler}>
-            &lt; Back
+            Back
           </button>
         </div>
       )}
