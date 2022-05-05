@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+  margin: 0 auto;
+  max-width: 70%;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.card {
+  background-color: hsla(190, 68%, 78%, 1);
+  background-image: radial-gradient(
+      at 100% 93%,
+      hsla(197, 54%, 69%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 0% 3%, hsla(202, 83%, 74%, 1) 0px, transparent 50%);
+  height: max-content;
+  width: 23rem;
+  border-style: solid;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.5rem;
+}
+.title {
+  line-height: 25px;
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+}
+.text {
+  line-height: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 2px #003f58 solid;
+  width: 10rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  padding: 0 3rem;
+  background: #0078a7;
+  cursor: pointer;
+}
+.button:hover {
+  background: #003f58;
+}
+@media (max-width: 800px) {
+  .container {
+    max-width: 100%;
+  }
+}

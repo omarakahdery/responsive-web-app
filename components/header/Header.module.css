@@ -53,7 +53,7 @@
   position: fixed;
   top: 0;
   bottom: 0;
-  z-index: 11;
+  z-index: 11111;
 }
 .searchWraper hr {
   width: 100%;

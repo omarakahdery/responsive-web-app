@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  max-width: 70%;
+}
+.line {
+  width: 100%;
+  border: 1px solid var(--m2);
+}
+.head {
+  padding: 0;
+  margin: 0;
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+.text {
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+@media (max-width: 800px) {
+  .container {
+    max-width: 100%;
+  }
+  .head {
+    padding: 0 3rem;
+  }
+  .text {
+    padding: 0 3rem;
+  }
+  .line {
+    width: 85%;
+    border: 1px solid var(--m2);
+  }
+}

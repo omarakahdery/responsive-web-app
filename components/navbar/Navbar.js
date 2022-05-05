@@ -1,4 +1,4 @@
-import classes from "../navbar/Navbar.module.css";
+import classes from "./Navbar.module.css";
 import useWindowSize from "../../customHooks/useWindowSize";
 import { useState } from "react";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import classes from "../header/Header.module.css";
+import classes from "./Header.module.css";
 
 const Header = () => {
   const [searchIsShow, setSearchIsShow] = useState(false);
