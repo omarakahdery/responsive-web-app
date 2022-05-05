@@ -1,8 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ### Responsive-Web-Page
 ###### Nested Navbar
-
+<br/>
+I Built this with [Next.js](https://nextjs.org/) and deployed it to [vercel](https://vercel.com/)
 App Link => https://responsive-web-app.vercel.app
 <br/>
 <br/>
