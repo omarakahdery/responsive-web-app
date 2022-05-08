@@ -1,8 +1,8 @@
+I Built this with [Next.js](https://nextjs.org) and deployed it in to [vercel](https://vercel.com)
 
-I Built this with [Next.js](https://nextjs.org) and deployed it to [vercel](https://vercel.com)
 ### Responsive-Web-Page
-###### Nested Navbar
-<br/>
+
+###### Nested Responsive Navbar
 
 App Link => https://responsive-web-app.vercel.app
 <br/>
